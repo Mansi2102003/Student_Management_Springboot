@@ -1,6 +1,7 @@
 package com.example.studentmanagement.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -22,6 +23,11 @@ public class StudentDaoImplementation implements StudentDao {
 				student.getEmail(),
 				student.getPh_no(),
 				student.getAddress());
+	}
+	
+	public Student findById(int id) {
+		String sql = "SELECT * FROM students WHERE id = ?";
+		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Student.class), id);
 	}
 
 }
