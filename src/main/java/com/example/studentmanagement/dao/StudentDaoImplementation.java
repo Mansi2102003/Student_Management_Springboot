@@ -12,14 +12,15 @@ public class StudentDaoImplementation implements StudentDao {
      private JdbcTemplate jdbcTemplate;
 
 	@Override
+	//It contains code to save the data into database
+	//it is repository class which is used to interact with db 
 	public int save(Student student) {
-		String sql = "INSERT INTO Students(id, name, course, email, ph_no, address) VALUES (?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO Students(name, course, email, ph_no, address) VALUES (?, ?, ?, ?, ?)";
 		return jdbcTemplate.update (sql,
-				student.getId(),
 				student.getName(),
 				student.getCourse(),
 				student.getEmail(),
-				student.getPhno(),
+				student.getPh_no(),
 				student.getAddress());
 	}
 

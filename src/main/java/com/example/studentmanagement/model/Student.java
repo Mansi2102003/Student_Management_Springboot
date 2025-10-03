@@ -5,16 +5,16 @@ public class Student {
     String name;
     String course;
     String email;
-    String phno;
+    String ph_no;
     String address;
- 
-	public Student(int id, String name, String course, String email, String phno, String address) {
+    
+    public Student(int id, String name, String course, String email, String ph_no, String address) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.course = course;
 		this.email = email;
-		this.phno = phno;
+		this.ph_no = ph_no;
 		this.address = address;
 	}
 
@@ -50,12 +50,12 @@ public class Student {
 		this.email = email;
 	}
 
-	public String getPhno() {
-		return phno;
+	public String getPh_no() {
+		return ph_no;
 	}
 
-	public void setPhno(String phno) {
-		this.phno = phno;
+	public void setPh_no(String ph_no) {
+		this.ph_no = ph_no;
 	}
 
 	public String getAddress() {
@@ -66,6 +66,5 @@ public class Student {
 		this.address = address;
 	}
 	
-	 
-     
+	
 }
