@@ -19,4 +19,8 @@ public class StudentServiceImplementation implements StudentService {
 		studentDao.save(student);   //Call studentsdao's method to save into database
 		return student;
 	}
+	
+	public Student getStudentById(int id) {
+		return studentDao.findById(id);
+	}
 }
