@@ -40,5 +40,12 @@ public class StudentServiceImplementation implements StudentService {
 	public List<Student> getAllStudents(){
 		return studentDao.findAll();
 	}
-	
+
+	@Override
+	public void deleteStudent(int id) {
+		int deleted = studentDao.delete(id);
+		System.out.println("Student data deleted from our record with id : " +id);
+	}
 }
+	
+

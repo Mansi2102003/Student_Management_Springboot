@@ -50,5 +50,11 @@ public class StudentDaoImplementation implements StudentDao {
 		String sql = "SELECT * from students";
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Student.class));
 	}
+	
+	@Override
+	public int delete(int id) {
+		String sql = "DELETE FROM students WHERE id = ? ";
+		return jdbcTemplate.update(sql,id);
+	}
 
 }

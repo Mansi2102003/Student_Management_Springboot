@@ -12,4 +12,5 @@ public interface StudentService {
 	Student getStudentById(int id);
 	Student updateStudentInfo(Student student) throws Exception;
 	List<Student> getAllStudents();
+	void deleteStudent(int id);
 }
