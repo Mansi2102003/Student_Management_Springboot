@@ -8,6 +8,10 @@ public class Student {
     String ph_no;
     String address;
     
+    public Student() {
+    	
+    }
+    
     public Student(int id, String name, String course, String email, String ph_no, String address) {
 		super();
 		this.id = id;

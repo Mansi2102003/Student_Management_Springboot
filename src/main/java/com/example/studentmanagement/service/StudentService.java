@@ -1,5 +1,7 @@
 package com.example.studentmanagement.service;
 
+import java.util.List;
+
 import com.example.studentmanagement.model.Student;
 
 //It is service class in which controller sends request here
@@ -8,4 +10,6 @@ import com.example.studentmanagement.model.Student;
 public interface StudentService {
 	Student addStudent(Student student);
 	Student getStudentById(int id);
+	Student updateStudentInfo(Student student) throws Exception;
+	List<Student> getAllStudents();
 }

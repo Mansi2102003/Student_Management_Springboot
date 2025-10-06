@@ -1,11 +1,14 @@
 package com.example.studentmanagement.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.example.studentmanagement.model.Student;
+import java.util.List;
+
 
 @Repository
 public class StudentDaoImplementation implements StudentDao {
@@ -25,9 +28,27 @@ public class StudentDaoImplementation implements StudentDao {
 				student.getAddress());
 	}
 	
+	@Override
 	public Student findById(int id) {
 		String sql = "SELECT * FROM students WHERE id = ?";
 		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Student.class), id);
+	}
+	
+	@Override
+	public int updateStudent(Student student) {
+		String sql = "UPDATE students SET name = ?, course =?, email =?, ph_no =?, address =? WHERE id =?";
+		return jdbcTemplate.update(sql, 
+				student.getName(),
+				student.getCourse(), 
+				student.getEmail(), 
+				student.getPh_no(), 
+				student.getAddress());
+	}
+	
+	@Override
+	public List<Student> findAll() {
+		String sql = "SELECT * from students";
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Student.class));
 	}
 
 }

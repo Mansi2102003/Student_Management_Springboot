@@ -1,5 +1,7 @@
 package com.example.studentmanagement.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +37,11 @@ public class StudentController {
   public ResponseEntity<Student> updateStudent(@PathVariable int id, @RequestBody Student student) throws Exception{
       student.setId(id);
       return ResponseEntity.ok(studentService.updateStudentInfo(student));
+  }
+  
+  @GetMapping
+  public ResponseEntity<List<Student>> findAllStudent(){
+	  return ResponseEntity.ok(studentService.getAllStudents());
   }
   
 }

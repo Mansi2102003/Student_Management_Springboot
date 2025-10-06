@@ -1,6 +1,7 @@
 package com.example.studentmanagement.dao;
 
 import com.example.studentmanagement.model.Student;
+import java.util.List;
 
 
 //StudentDao interface created 
@@ -9,4 +10,7 @@ import com.example.studentmanagement.model.Student;
 public interface StudentDao {
 	int save(Student student);
 	Student findById(int id);
+	int updateStudent(Student student);
+	List<Student> findAll();
+
 }
