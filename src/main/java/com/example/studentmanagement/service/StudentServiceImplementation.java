@@ -25,9 +25,12 @@ public class StudentServiceImplementation implements StudentService {
 	
 	@Override
 	public Student getStudentById(int id) {
-		return studentDao.findById(id);
-	}
-	
+		try {
+            return studentDao.findById(id);
+        } catch (Exception e) {
+            throw new ResourceNotFoundException("Student with id " + id + " not found");
+        }
+	}  
 	 @Override
 	    public Student updateStudent(Student student) {
 	        int updated = studentDao.update(student);
