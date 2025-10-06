@@ -10,7 +10,8 @@ import com.example.studentmanagement.model.Student;
 public interface StudentService {
 	Student addStudent(Student student);
 	Student getStudentById(int id);
-	Student updateStudentInfo(Student student) throws Exception;
-	List<Student> getAllStudents();
+	Student updateStudent(Student student);
 	void deleteStudent(int id);
+	List<Student> getAllStudents();
+
 }

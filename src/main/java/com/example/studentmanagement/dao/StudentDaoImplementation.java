@@ -35,7 +35,7 @@ public class StudentDaoImplementation implements StudentDao {
 	}
 	
 	@Override
-	public int updateStudent(Student student) {
+	public int update(Student student) {
 		String sql = "UPDATE students SET name = ?, course =?, email =?, ph_no =?, address =? WHERE id =?";
 		return jdbcTemplate.update(sql, 
 				student.getName(),

@@ -34,21 +34,22 @@ public class StudentController {
       return ResponseEntity.ok(studentService.getStudentById(id));
   }
   
-  @PutMapping("/{id}")
-  public ResponseEntity<Student> updateStudent(@PathVariable int id, @RequestBody Student student) throws Exception{
-      student.setId(id);
-      return ResponseEntity.ok(studentService.updateStudentInfo(student));
-  }
   
   @GetMapping
   public ResponseEntity<List<Student>> findAllStudent(){
 	  return ResponseEntity.ok(studentService.getAllStudents());
   }
   
-  @DeleteMapping("/{id}")
-  public ResponseEntity<Student> deleteStudent(@PathVariable int id){
-	  studentService.deleteStudent(id);
-	  return ResponseEntity.noContent().build();
+  @PutMapping("/{id}")
+  public ResponseEntity<Student> updateStudent(@PathVariable int id, @RequestBody Student student) throws Exception {
+      student.setId(id);
+      return ResponseEntity.ok(studentService.updateStudent(student));
   }
-  
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> deleteStudent(@PathVariable int id) {
+      studentService.deleteStudent(id);
+      return ResponseEntity.noContent().build();
+  }
 }
+
