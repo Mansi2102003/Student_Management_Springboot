@@ -9,6 +9,8 @@ import com.example.studentmanagement.dao.StudentDao;
 import com.example.studentmanagement.exception.ResourceNotFoundException;
 import com.example.studentmanagement.model.Student;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class StudentServiceImplementation implements StudentService {
 	
@@ -32,6 +34,7 @@ public class StudentServiceImplementation implements StudentService {
         }
 	}  
 	 @Override
+	 @Transactional
 	    public Student updateStudent(Student student) {
 	        int updated = studentDao.update(student);
 	        if (updated == 0) {

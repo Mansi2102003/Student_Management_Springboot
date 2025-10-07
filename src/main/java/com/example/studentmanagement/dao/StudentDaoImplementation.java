@@ -38,12 +38,12 @@ public class StudentDaoImplementation implements StudentDao {
 	public int update(Student student) {
 		String sql = "UPDATE students SET name = ?, course =?, email =?, ph_no =?, address =? WHERE id=?";
 		return jdbcTemplate.update(sql, 
-				student.getId(),
 				student.getName(),
 				student.getCourse(), 
 				student.getEmail(), 
 				student.getPh_no(), 
-				student.getAddress()
+				student.getAddress(),
+				student.getId()
 				);
 	}
 	
