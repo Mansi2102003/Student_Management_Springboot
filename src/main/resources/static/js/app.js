@@ -74,11 +74,11 @@ async function editStudent(id) {
     const response = await fetch(`${API_URL}/${id}`);
     const student = await response.json();
 
-    document.getElementById('name').value = student.name;
-    document.getElementById('course').value = student.course;
-    document.getElementById('email').value = student.email;
-    document.getElementById('ph_no').value = student.ph_no;
-    document.getElementById('address').value = student.address;
+   // document.getElementById('name').value = student.name;
+   // document.getElementById('course').value = student.course;
+   // document.getElementById('email').value = student.email;
+   // document.getElementById('ph_no').value = student.ph_no;
+   // document.getElementById('address').value = student.address;
     
     currentStudentId = student.id;
     formTitle.innerText = 'Edit Student';
@@ -131,7 +131,7 @@ function displayFoundStudent(student) {
     if (student) {
         searchResultDiv.innerHTML = `
             <div class="card p-3 bg-light">
-                <h5>Student Details</h5>
+                <h6>Student Details</h6>
                 <p><strong>ID:</strong> ${student.id}</p>
                 <p><strong>Name:</strong> ${student.name}</p>
                 <p><strong>Course:</strong> ${student.course}</p>
