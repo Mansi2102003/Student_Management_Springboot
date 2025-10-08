@@ -84,6 +84,7 @@ Student_Management_Springboot/
   );
 	
 3️⃣ Configure Database in application.properties
+
 	spring.application.name=studentmanagement
 	spring.datasource.url=jdbc:postgresql://localhost:5432/YOUR_DATABASE_NAME
 	spring.datasource.username= YOUR_USERNAME
@@ -113,7 +114,16 @@ Student_Management_Springboot/
 - Or visit directly in the browser:
 	http://localhost:8080/index.html
 	
+#API Endpoints
 
+| Method | Endpoint           | Description       |
+| ------ | ------------------ | ----------------- |
+| GET    | /api/students      | Get all students  |
+| GET    | /api/students/{id} | Get student by ID |
+| POST   | /api/students      | Add new student   |
+| PUT    | /api/students/{id} | Update student    |
+| DELETE | /api/students/{id} | Delete student    |
+	
 
 
 		
