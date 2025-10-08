@@ -162,4 +162,10 @@ Update Student Details:
 
 
 View Students:
-<img width="1201" height="524" alt="StudentList" src="https://github.com/user-attachments/assets/c85e0843-be14-4fa5-9ffa-66703a9a9d64" />		
+<img width="1201" height="524" alt="StudentList" src="https://github.com/user-attachments/assets/c85e0843-be14-4fa5-9ffa-66703a9a9d64" />	
+
+Author
+
+Mansi Thakkar
+📧 mthakkar@logilite.com
+💼 Project based on Java + Spring Boot + PostgreSQL + JS stack	
