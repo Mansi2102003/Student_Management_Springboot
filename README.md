@@ -12,7 +12,7 @@
 - View all students in a tabular format
 - Responsive UI built with Bootstrap 5
 
-#Tech Stack
+Tech Stack
 
 1.Frontend:
 	- HTML5, CSS3, JavaScript (ES6)
