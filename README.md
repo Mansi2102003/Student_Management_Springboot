@@ -15,22 +15,22 @@ Features
 Tech Stack
 
 1.Frontend:\
-	- HTML5, CSS3, JavaScript (ES6)\
-	- Bootstrap 5\
+		- HTML5, CSS3, JavaScript (ES6)\
+		- Bootstrap 
 
 2.Backend:\
-	- Java 21\
-	- Spring Boot \
-	- Spring Web (REST API)\
-	- Spring JDBC / JdbcTemplate\
+		- Java 21\
+		- Spring Boot \
+		- Spring Web (REST API)\
+		- Spring JDBC / JdbcTemplate
 
 3.Database:\
-	- PostgreSQL\
+		- PostgreSQL
 
 4.Tools:\
-	- Eclipse IDE\
-	- Apache Tomcat (embedded in Spring Boot)\
-	- Maven for dependency management\
+		- Eclipse IDE\
+		- Apache Tomcat (embedded in Spring Boot)\
+		- Maven for dependency management
 	
 Project Structure
 	
@@ -59,7 +59,7 @@ Student_Management_Springboot/\
 │       └── js/\
 │           └── app.js\
 │\
-└── pom.xml\
+└── pom.xml
 
 Setup Instructions
 
@@ -124,22 +124,22 @@ API Endpoints
 | PUT    | /api/students/{id} | Update student    |
 | DELETE | /api/students/{id} | Delete student    |
 	
-#Frontend Overview
+Frontend Overview
 
 - index.html:\
 	Contains input forms and table structure.\
-	Uses Bootstrap for styling.\
+	Uses Bootstrap for styling.
 
 - app.js:\
-	Handles API calls to Spring Boot backend.\
+	Handles API calls to Spring Boot backend.
 - Functions:\
 	fetchStudents() → loads all students\
 	editStudent(id) → fetches and fills form\
 	deleteStudent(id) → deletes student\
 	findStudentForm → searches by ID\
-	Form submit → adds or updates student\
+	Form submit → adds or updates student
 
-#Screenshots
+Screenshots
 
 FindById:\
 <img width="1208" height="261" alt="searchById" src="https://github.com/user-attachments/assets/969b5d8c-ac62-4073-8765-ad55c9959859" />
@@ -166,6 +166,6 @@ View Students:\
 
 Author
 
-Mansi Thakkar
-📧 mthakkar@logilite.com
+Mansi Thakkar\
+📧 mthakkar@logilite.com\
 💼 Project based on Java + Spring Boot + PostgreSQL + JS stack	
