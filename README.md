@@ -73,7 +73,7 @@ Student_Management_Springboot/
 - Run this SQL in PostgreSQL:
 
   CREATE DATABASE DATABASE_NAME;
-
+  
   CREATE TABLE TABLE_NAME (
   	id SERIAL PRIMARY KEY,
   	name VARCHAR(255) NOT NULL,
@@ -104,7 +104,7 @@ Student_Management_Springboot/
 - Or using terminal:
 	mvn spring-boot:run
 
--App will run at:
+- App will run at:
 	http://localhost:8080
 
 5️⃣ Access Frontend
@@ -124,6 +124,21 @@ Student_Management_Springboot/
 | PUT    | /api/students/{id} | Update student    |
 | DELETE | /api/students/{id} | Delete student    |
 	
+#Frontend Overview
 
+- index.html
+	Contains input forms and table structure.
+	Uses Bootstrap for styling.
+
+- app.js
+	Handles API calls to Spring Boot backend.
+- Functions:
+	fetchStudents() → loads all students
+	editStudent(id) → fetches and fills form
+	deleteStudent(id) → deletes student
+	findStudentForm → searches by ID
+	Form submit → adds or updates student
+
+#Screenshots
 
 		
