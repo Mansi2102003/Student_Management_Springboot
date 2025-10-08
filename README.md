@@ -15,22 +15,22 @@
 **Tech Stack**
 
 1.Frontend:\
-	HTML5, CSS3, JavaScript (ES6)\
-	Bootstrap 
+- HTML5, CSS3, JavaScript (ES6)\
+- Bootstrap 
 
 2.Backend:\
-	Java 21\
-	Spring Boot \
-	Spring Web (REST API)\
-	Spring JDBC / JdbcTemplate
+- Java 21\
+- Spring Boot \
+- Spring Web (REST API)\
+- Spring JDBC / JdbcTemplate
 
 3.Database:\
-	PostgreSQL
+- PostgreSQL
 
 4.Tools:\
-	Eclipse IDE\
-	Apache Tomcat (embedded in Spring Boot)\
-	Maven for dependency management
+- Eclipse IDE\
+- Apache Tomcat (embedded in Spring Boot)\
+- Maven for dependency management
 	
 **Project Structure**
 	
