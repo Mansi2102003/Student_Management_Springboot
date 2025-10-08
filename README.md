@@ -11,3 +11,24 @@
 - Search student by ID
 - View all students in a tabular format
 - Responsive UI built with Bootstrap 5
+
+#Tech Stack
+
+1.Frontend:
+	- HTML5, CSS3, JavaScript (ES6)
+	- Bootstrap 5
+
+2.Backend:
+	- Java 21
+	- Spring Boot 
+	- Spring Web (REST API)
+	- Spring JDBC / JdbcTemplate
+
+3.Database:
+	- PostgreSQL
+
+4.Tools:
+	- Eclipse IDE
+	- Apache Tomcat (embedded in Spring Boot)
+	- Maven for dependency management
+	
