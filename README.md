@@ -1,9 +1,9 @@
-Student Management System
+**Student Management System**
 
 - A full-stack student management student using spring Boot(java) for backend and HTML, CSS, JS, BOOTSTRAP for frontend.
 - It allows user to add, view, update, delete and search a student records stored in PostgreSQL database.
 
-Features
+**Features**
 
 - Add new student records
 - Edit and update existing student information
@@ -12,27 +12,27 @@ Features
 - View all students in a tabular format
 - Responsive UI built with Bootstrap 5
 
-Tech Stack
+**Tech Stack**
 
 1.Frontend:\
-		- HTML5, CSS3, JavaScript (ES6)\
-		- Bootstrap 
+	HTML5, CSS3, JavaScript (ES6)\
+	Bootstrap 
 
 2.Backend:\
-		- Java 21\
-		- Spring Boot \
-		- Spring Web (REST API)\
-		- Spring JDBC / JdbcTemplate
+	Java 21\
+	Spring Boot \
+	Spring Web (REST API)\
+	Spring JDBC / JdbcTemplate
 
 3.Database:\
-		- PostgreSQL
+	PostgreSQL
 
 4.Tools:\
-		- Eclipse IDE\
-		- Apache Tomcat (embedded in Spring Boot)\
-		- Maven for dependency management
+	Eclipse IDE\
+	Apache Tomcat (embedded in Spring Boot)\
+	Maven for dependency management
 	
-Project Structure
+**Project Structure**
 	
 Student_Management_Springboot/\
 │\
@@ -61,7 +61,7 @@ Student_Management_Springboot/\
 │\
 └── pom.xml
 
-Setup Instructions
+**Setup Instructions**
 
 1️⃣ Prerequisites
 - Java 17 or later
@@ -72,16 +72,16 @@ Setup Instructions
 2️⃣ Create Database
 - Run this SQL in PostgreSQL:
 
-  CREATE DATABASE DATABASE_NAME;\
+  	CREATE DATABASE DATABASE_NAME;\
   
-  CREATE TABLE TABLE_NAME (\
-  	id SERIAL PRIMARY KEY,\
-  	name VARCHAR(255) NOT NULL,\
- 	course VARCHAR(255) NOT NULL,\
- 	email VARCHAR(255) NOT NULL UNIQUE,\
- 	ph_no VARCHAR(15) NOT NULL,\
- 	address VARCHAR(255)\
-  );
+  	CREATE TABLE TABLE_NAME (\
+  		id SERIAL PRIMARY KEY,\
+  		name VARCHAR(255) NOT NULL,\
+ 		course VARCHAR(255) NOT NULL,\
+ 		email VARCHAR(255) NOT NULL UNIQUE,\
+ 		ph_no VARCHAR(15) NOT NULL,\
+ 		address VARCHAR(255)\
+  	);
 	
 3️⃣ Configure Database in application.properties
 
@@ -114,7 +114,7 @@ Setup Instructions
 - Or visit directly in the browser:
 	http://localhost:8080/index.html
 	
-API Endpoints
+**API Endpoints**
 
 | Method | Endpoint           | Description       |
 | ------ | ------------------ | ----------------- |
@@ -124,22 +124,22 @@ API Endpoints
 | PUT    | /api/students/{id} | Update student    |
 | DELETE | /api/students/{id} | Delete student    |
 	
-Frontend Overview
+**Frontend Overview**
 
 - index.html:\
-	Contains input forms and table structure.\
-	Uses Bootstrap for styling.
+		Contains input forms and table structure.\
+		Uses Bootstrap for styling.
 
 - app.js:\
-	Handles API calls to Spring Boot backend.
+		Handles API calls to Spring Boot backend.
 - Functions:\
-	fetchStudents() → loads all students\
-	editStudent(id) → fetches and fills form\
-	deleteStudent(id) → deletes student\
-	findStudentForm → searches by ID\
-	Form submit → adds or updates student
+		fetchStudents() → loads all students\
+		editStudent(id) → fetches and fills form\
+		deleteStudent(id) → deletes student\
+		findStudentForm → searches by ID\
+		Form submit → adds or updates student
 
-Screenshots
+**Screenshots**
 
 FindById:\
 <img width="1208" height="261" alt="searchById" src="https://github.com/user-attachments/assets/969b5d8c-ac62-4073-8765-ad55c9959859" />
@@ -164,7 +164,7 @@ Update Student Details: \
 View Students:\
 <img width="1201" height="524" alt="StudentList" src="https://github.com/user-attachments/assets/c85e0843-be14-4fa5-9ffa-66703a9a9d64" />	
 
-Author
+**Author**
 
 Mansi Thakkar\
 📧 mthakkar@logilite.com\
