@@ -32,3 +32,33 @@
 	- Apache Tomcat (embedded in Spring Boot)
 	- Maven for dependency management
 	
+#Project Structure
+	
+Student_Management_Springboot/
+│
+├── src/main/java/com/example/studentmanagement/
+│   ├── controller/
+│   │   └── StudentController.java
+│   ├── dao/
+│   │   ├── StudentDao.java
+│   │   └── StudentDaoImplementation.java
+│   ├── model/
+│   │   └── Student.java
+│   ├── service/
+│   │   └── StudentService.java
+│   |	└── StudentServiceImplementation.java
+│   ├── exception/
+│   |	└── ResourceNotFoundException.java 
+│   │   └── GlobalExceptionHandler.java
+│   └── StudentmanagementApplication.java
+│
+├── src/main/resources/
+│   ├── application.properties
+│   └── static/
+│       ├── index.html
+│       └── js/
+│           └── app.js
+│
+└── pom.xml
+	
+	
