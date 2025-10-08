@@ -14,52 +14,52 @@ Features
 
 Tech Stack
 
-1.Frontend:
-	- HTML5, CSS3, JavaScript (ES6)
-	- Bootstrap 5
+1.Frontend:\
+	- HTML5, CSS3, JavaScript (ES6)\
+	- Bootstrap 5\
 
-2.Backend:
-	- Java 21
-	- Spring Boot 
-	- Spring Web (REST API)
-	- Spring JDBC / JdbcTemplate
+2.Backend:\
+	- Java 21\
+	- Spring Boot \
+	- Spring Web (REST API)\
+	- Spring JDBC / JdbcTemplate\
 
-3.Database:
-	- PostgreSQL
+3.Database:\
+	- PostgreSQL\
 
-4.Tools:
-	- Eclipse IDE
-	- Apache Tomcat (embedded in Spring Boot)
-	- Maven for dependency management
+4.Tools:\
+	- Eclipse IDE\
+	- Apache Tomcat (embedded in Spring Boot)\
+	- Maven for dependency management\
 	
 Project Structure
 	
-Student_Management_Springboot/
-│
-├── src/main/java/com/example/studentmanagement/
-│   ├── controller/
-│   │   └── StudentController.java
-│   ├── dao/
-│   │   ├── StudentDao.java
-│   │   └── StudentDaoImplementation.java
-│   ├── model/
-│   │   └── Student.java
-│   ├── service/
-│   │   └── StudentService.java
-│   |	└── StudentServiceImplementation.java
-│   ├── exception/
-│   |	└── ResourceNotFoundException.java 
-│   │   └── GlobalExceptionHandler.java
-│   └── StudentmanagementApplication.java
-│
-├── src/main/resources/
-│   ├── application.properties
-│   └── static/
-│       ├── index.html
-│       └── js/
-│           └── app.js
-│
-└── pom.xml
+Student_Management_Springboot/\
+│\
+├── src/main/java/com/example/studentmanagement/\
+│   ├── controller/\
+│   │   └── StudentController.java\
+│   ├── dao/\
+│   │   ├── StudentDao.java\
+│   │   └── StudentDaoImplementation.java\
+│   ├── model/\
+│   │   └── Student.java\
+│   ├── service/\
+│   │   └── StudentService.java\
+│   |	└── StudentServiceImplementation.java\
+│   ├── exception/\
+│   |	└── ResourceNotFoundException.java \
+│   │   └── GlobalExceptionHandler.java\
+│   └── StudentmanagementApplication.java\
+│\
+├── src/main/resources/\
+│   ├── application.properties\
+│   └── static/\
+│       ├── index.html\
+│       └── js/\
+│           └── app.js\
+│\
+└── pom.xml\
 
 Setup Instructions
 
@@ -72,15 +72,15 @@ Setup Instructions
 2️⃣ Create Database
 - Run this SQL in PostgreSQL:
 
-  CREATE DATABASE DATABASE_NAME;
+  CREATE DATABASE DATABASE_NAME;\
   
-  CREATE TABLE TABLE_NAME (
-  	id SERIAL PRIMARY KEY,
-  	name VARCHAR(255) NOT NULL,
- 	course VARCHAR(255) NOT NULL,
- 	email VARCHAR(255) NOT NULL UNIQUE,
- 	ph_no VARCHAR(15) NOT NULL,
- 	address VARCHAR(255)
+  CREATE TABLE TABLE_NAME (\
+  	id SERIAL PRIMARY KEY,\
+  	name VARCHAR(255) NOT NULL,\
+ 	course VARCHAR(255) NOT NULL,\
+ 	email VARCHAR(255) NOT NULL UNIQUE,\
+ 	ph_no VARCHAR(15) NOT NULL,\
+ 	address VARCHAR(255)\
   );
 	
 3️⃣ Configure Database in application.properties
@@ -126,42 +126,42 @@ API Endpoints
 	
 #Frontend Overview
 
-- index.html
-	Contains input forms and table structure.
-	Uses Bootstrap for styling.
+- index.html:\
+	Contains input forms and table structure.\
+	Uses Bootstrap for styling.\
 
-- app.js
-	Handles API calls to Spring Boot backend.
-- Functions:
-	fetchStudents() → loads all students
-	editStudent(id) → fetches and fills form
-	deleteStudent(id) → deletes student
-	findStudentForm → searches by ID
-	Form submit → adds or updates student
+- app.js:\
+	Handles API calls to Spring Boot backend.\
+- Functions:\
+	fetchStudents() → loads all students\
+	editStudent(id) → fetches and fills form\
+	deleteStudent(id) → deletes student\
+	findStudentForm → searches by ID\
+	Form submit → adds or updates student\
 
 #Screenshots
 
-FindById:
+FindById:\
 <img width="1208" height="261" alt="searchById" src="https://github.com/user-attachments/assets/969b5d8c-ac62-4073-8765-ad55c9959859" />
 
 
-User Friendly Message:
+User Friendly Message:\
 <img width="1201" height="279" alt="NotFoundStudentData" src="https://github.com/user-attachments/assets/176bc967-3d0d-4dbf-9909-ce7a6bca7398" />
 
 
-Found Student By Id:
+Found Student By Id:\
 <img width="1201" height="499" alt="FindByIdOp" src="https://github.com/user-attachments/assets/302656bf-914a-4fad-87cc-cdd476252a91" />
 
 
-Add Student:
+Add Student:\
 <img width="1201" height="598" alt="AddStudent" src="https://github.com/user-attachments/assets/1321069b-ade6-41df-b24e-adc2e9467cf8" />
 
 
-Update Student Details: 
+Update Student Details: \
 <img width="1201" height="605" alt="UpdateStudent" src="https://github.com/user-attachments/assets/a99aff37-f8b1-468f-bc79-c6ed997223c1" />
 
 
-View Students:
+View Students:\
 <img width="1201" height="524" alt="StudentList" src="https://github.com/user-attachments/assets/c85e0843-be14-4fa5-9ffa-66703a9a9d64" />	
 
 Author
