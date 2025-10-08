@@ -12,7 +12,7 @@
 - View all students in a tabular format
 - Responsive UI built with Bootstrap 5
 
-Tech Stack
+#Tech Stack
 
 1.Frontend:
 	- HTML5, CSS3, JavaScript (ES6)
@@ -60,5 +60,60 @@ Student_Management_Springboot/
 │           └── app.js
 │
 └── pom.xml
+
+#Setup Instructions
+
+1️⃣ Prerequisites
+- Java 17 or later
+- PostgreSQL installed and running
+- Eclipse IDE or IntelliJ IDEA
+- Maven
+
+2️⃣ Create Database
+- Run this SQL in PostgreSQL:
+
+  CREATE DATABASE DATABASE_NAME;
+
+  CREATE TABLE TABLE_NAME (
+  	id SERIAL PRIMARY KEY,
+  	name VARCHAR(255) NOT NULL,
+ 	course VARCHAR(255) NOT NULL,
+ 	email VARCHAR(255) NOT NULL UNIQUE,
+ 	ph_no VARCHAR(15) NOT NULL,
+ 	address VARCHAR(255)
+  );
 	
+3️⃣ Configure Database in application.properties
+	spring.application.name=studentmanagement
+	spring.datasource.url=jdbc:postgresql://localhost:5432/YOUR_DATABASE_NAME
+	spring.datasource.username= YOUR_USERNAME
+	spring.datasource.password = YOUR_PASSWORD
+	spring.datasource.driver-class-name=org.postgresql.Driver
 	
+	spring.jpa.show-sql= true
+	logging.level.org.springframework.jdbc.core=DEBUG
+	
+	logging.level.org.springframework.jdbc.core.JdbcTemplate=DEBUG
+	logging.level.org.springframework.jdbc.core.StatementCreatorUtils=TRACE
+	
+4️⃣ Build and Run the Application
+- In Eclipse:
+	Right-click the project → Run As → Spring Boot App
+
+- Or using terminal:
+	mvn spring-boot:run
+
+-App will run at:
+	http://localhost:8080
+
+5️⃣ Access Frontend
+- Open the file:
+	src/main/resources/static/index.html
+
+- Or visit directly in the browser:
+	http://localhost:8080/index.html
+	
+
+
+
+		
