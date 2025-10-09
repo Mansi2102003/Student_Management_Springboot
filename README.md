@@ -181,7 +181,7 @@ search-student.html\
 app.js:\
 	- Handles API calls to Spring Boot backend.\
 
-Functions:\
+Functions:
 | Function              | Purpose                                               |
 | --------------------- | ----------------------------------------------------- |
 | **fetchStudents()**   | Loads and displays all students (GET).                |
@@ -237,6 +237,16 @@ Functions:\
 
 
 ![A screenshot of the application](images/ViewAllStudent.png)
+
+**Service class Test Cases**
+
+
+![A screenshot of the application](images/ServiceTestCases.png)
+
+**Controller Test cases**
+
+
+![A screenshot of the application](images/ControllerTestCases.png)
 
 **Author**
 
