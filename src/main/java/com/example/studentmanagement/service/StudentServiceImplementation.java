@@ -16,7 +16,7 @@ public class StudentServiceImplementation implements StudentService {
 	
 	//Autowired annotation means it tells spring to wired studenDao bean automatically
 	@Autowired
-	StudentDao studentDao;
+	private StudentDao studentDao;
 	
 	//It contains core business logic is written
 	@Override
