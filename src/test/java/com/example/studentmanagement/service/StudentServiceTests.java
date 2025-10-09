@@ -16,7 +16,7 @@ import com.example.studentmanagement.model.Student;
 import com.example.studentmanagement.service.StudentServiceImplementation;
 
 @SpringBootTest
-public class StudentServiceTest {
+public class StudentServiceTests {
 
 	 @Mock
 	 private StudentDao studentDao;

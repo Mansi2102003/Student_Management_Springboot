@@ -65,6 +65,14 @@ Student_Management_Springboot/\
 │       |   └── app.js\
 │       └── css/\
 │           └── style.css\
+|\
+├── src/test/java/com/example/studentmanagement/\  
+|	├── controller/\
+│   │   └── StudentControllerTests.java\  
+│   ├── service/\
+│   |	└── StudentServiceImplementationTests.java\
+│   └── StudentmanagementApplicationTests.java\
+│\
 └── images/
 |   ├── AddStudentForm.png\
 |	├── DeleteStudent.png\
