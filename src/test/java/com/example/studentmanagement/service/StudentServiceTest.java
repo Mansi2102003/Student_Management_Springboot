@@ -26,12 +26,21 @@ public class StudentServiceTest {
 	     
 
 	     @Test
+	     //This method tests the add student method of Service Layer
 	     void addStudentTest() throws Exception {
+	    	//Creates fake Students object
 	        Student student = new Student(1,"Mansiii","JAVA", "mansu@gmail.com", "9988562374","Ahmedabad");
+	       
+	        //Tell Mokito what to return when  Dao is called
 	        when(studentDao.save(student)).thenReturn(1);
 	        
+	        //Calls real service method to test
 	        Student saved = studentService.addStudent(student);
+	        
+	        //used to verify that a given object reference is not null
 	         assertNotNull(saved);
+	         
+	         //Verifies the result
 	         assertEquals("Mansiii", saved.getName());
 	     }
 	     
@@ -42,7 +51,7 @@ public class StudentServiceTest {
 		        
 		        Student found = studentService.getStudentById(2);
 		        assertNotNull(found);
-		         assertEquals("Mansiii", found.getName());
+		        assertEquals("Mansiii", found.getName());
 		    }
 	     
 	     @Test

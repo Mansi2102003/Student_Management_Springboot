@@ -1,10 +1,11 @@
 package com.example.studentmanagement.controller;
 
 import com.example.studentmanagement.model.Student;
-import com.example.studentmanagement.service.StudentService;
+
 import com.example.studentmanagement.service.StudentServiceImplementation;
-import com.example.studentmanagement.controller.StudentController;
+
 import org.junit.jupiter.api.Test;
+import org.mockito.stubbing.OngoingStubbing;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -12,6 +13,9 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -39,4 +43,16 @@ public class StudentControllerTest {
                 .andExpect(jsonPath("$.length()").value(2))
                 .andExpect(jsonPath("$[0].name").value("Mansi"));
     }
+    @Test
+    void testDeleteStudent()throws Exception{
+    	 doNothing().when(studentService).deleteStudent(1);
+    	 
+    	 mockMvc.perform(get("/api/students/1"))
+         .andExpect(status().isOk());
+     
+    	
+     
+    	 
+    }
+	
 }
