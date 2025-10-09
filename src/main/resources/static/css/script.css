@@ -1,0 +1,16 @@
+
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    .footer {
+      background-color: rgba(0, 0, 0, 0.2);
+      text-align: center;
+      margin: 20px;
+      padding: 12px 0;
+      font-size: 0.95rem;
+      color: #f8f9fa;
+      position: fixed; /* Positions the footer relative to the viewport */
+  	  bottom: 0; /* Anchors the footer to the bottom of the viewport */
+      /* Anchors the footer to the left of the viewport left: 0;  */
+      width: 100%;
+    }
