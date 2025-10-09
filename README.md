@@ -36,9 +36,9 @@
 	
 Student_Management_Springboot/\
 │\
-├── src/main/java/com/example/studentmanagement/\
+├── src/main/java/com/example/studentmanagement/\  
 │   ├── controller/\
-│   │   └── StudentController.java\
+│   │   └── StudentController.java\  
 │   ├── dao/\
 │   │   ├── StudentDao.java\
 │   │   └── StudentDaoImplementation.java\
@@ -56,9 +56,25 @@ Student_Management_Springboot/\
 │   ├── application.properties\
 │   └── static/\
 │       ├── index.html\
-│       └── js/\
-│           └── app.js\
-│\
+|		├── add-student.html\
+|		├── delete-student.html\
+|		├── search-student.html\
+|		├── update-student.html\
+|		├── view-students.html\
+|		└── js/\
+│       |   └── app.js\
+│       └── css/\
+│           └── style.css\
+└── images/
+|   ├── AddStudentForm.png\
+|	├── DeleteStudent.png\
+|	├── FindById.png\
+|	├── FindByIdOutput.png\
+|	├── Homepage.png\
+|	├── NostudentFoundToDelete.png\
+|	├── StudentAdded.png\
+|	├── UpdateStudentForm.png\
+|	└──ViewAllStudent.png\
 └── pom.xml
 
 **Setup Instructions**
@@ -126,43 +142,93 @@ Student_Management_Springboot/\
 	
 **Frontend Overview**
 
-- index.html:\
-		Contains input forms and table structure.\
-		Uses Bootstrap for styling.
+index.html:\
+	- Main page with navigation bar.\
+	- Contains visually styled cards to access each module.\
+	- Uses Bootstrap for responsive design and gradient background.\
 
-- app.js:\
-		Handles API calls to Spring Boot backend.
-- Functions:\
-		fetchStudents() → loads all students\
-		editStudent(id) → fetches and fills form\
-		deleteStudent(id) → deletes student\
-		findStudentForm → searches by ID\
-		Form submit → adds or updates student
+add-student.html\
+	- Form to add a new student.\
+	- Fields: Name, Course, Email, Phone No, Address.\
+	- On clicking “Add Student”, data is sent to backend using Fetch API (POST method).\
+
+view-students.html\
+	- Displays all students in a Bootstrap table.\
+	- Fetches data from backend using GET request.\
+	- Each row has “Edit” and “Delete” buttons.\
+
+update-student.html\
+	- Form to update an existing student’s details.\
+	- Pre-fills student data when selected from the table.\
+	- Sends updated data to backend using PUT method.\
+
+delete-student.html\
+	- Allows deleting a student by ID.\
+	- Sends delete request to backend using DELETE method.\
+
+search-student.html\
+	- Lets you search a student by their ID.\
+	- Displays details in a card format.\
+
+app.js:\
+	- Handles API calls to Spring Boot backend.\
+
+Functions:\
+| Function              | Purpose                                               |
+| --------------------- | ----------------------------------------------------- |
+| **fetchStudents()**   | Loads and displays all students (GET).                |
+| **addStudent()**      | Adds a new student (POST).                            | 
+| **updateStudent()**   | Updates existing student info (PUT).                  |
+| **deleteStudent(id)** | Deletes a student by ID (DELETE).                     |
+| **findStudentById()** | Searches and displays student by ID (GET by ID).      |
+| **resetForm()**       | Clears input fields after add/update.                 |
 
 **Screenshots**
 
-FindById:\
-<img width="1208" height="261" alt="searchById" src="https://github.com/user-attachments/assets/969b5d8c-ac62-4073-8765-ad55c9959859" />
+**Home Page**
 
 
-User Friendly Message:\
-<img width="1201" height="279" alt="NotFoundStudentData" src="https://github.com/user-attachments/assets/176bc967-3d0d-4dbf-9909-ce7a6bca7398" />
+![A screenshot of the application](images/Homepage.png)
+
+**Add Student:**
 
 
-Found Student By Id:\
-<img width="1201" height="499" alt="FindByIdOp" src="https://github.com/user-attachments/assets/302656bf-914a-4fad-87cc-cdd476252a91" />
+![A screenshot of the application](images/AddStudentForm.png)
+
+**Student Added Successfully:**
 
 
-Add Student:\
-<img width="1201" height="598" alt="AddStudent" src="https://github.com/user-attachments/assets/1321069b-ade6-41df-b24e-adc2e9467cf8" />
+![A screenshot of the application](images/StudentAdded.png)
+
+**Delete Student:**
 
 
-Update Student Details: \
-<img width="1201" height="605" alt="UpdateStudent" src="https://github.com/user-attachments/assets/a99aff37-f8b1-468f-bc79-c6ed997223c1" />
+![A screenshot of the application](images/DeleteStudent.png)
+
+**FindById:**
 
 
-View Students:\
-<img width="1201" height="524" alt="StudentList" src="https://github.com/user-attachments/assets/c85e0843-be14-4fa5-9ffa-66703a9a9d64" />	
+![A screenshot of the application](images/FindById.png)
+
+**Found Student By Id:**
+
+
+![A screenshot of the application](images/FindByIdOutput.png)
+
+**Student Not Found:**
+
+
+![A screenshot of the application](images/NostudentFoundToDelete.png)
+
+**Update Student Details:** 
+
+
+![A screenshot of the application](images/UpdateStudentForm.png)
+
+**View Students:**
+
+
+![A screenshot of the application](images/ViewAllStudent.png)
 
 **Author**
 
