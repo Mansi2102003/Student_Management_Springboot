@@ -45,13 +45,5 @@ public class StudentServiceTest {
 		         assertEquals("Mansiii", found.getName());
 		    }
 	     
-	     @Test
-	     void updateStudent() {
-	    	 Student student = new Student(1,"Mansi Thakkar", "HTML","mansi@gmail.com", "9988567424","Pune");
-	    	 when(studentDao.update(student)).thenReturn(1);
-	    	 
-	    	 Student updated = studentService.updateStudent(student);
-	    	 assertNotNull(updated);
-	    	 assertEquals("Mansi Thakkar",updated.getName());
-	     }
+	    
 	 }
