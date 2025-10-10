@@ -96,6 +96,33 @@ public class StudentController {
 		studentService.deleteStudent(id);
 		return ResponseEntity.noContent().build();
 	}
+	// Update specific field by ID
+	@PatchMapping("/{id}/update")
+	public ResponseEntity<?> updateStudentField(@PathVariable int id, @RequestBody Map<String, Object> updates) {
 
+		try {
+			if (updates.isEmpty()) {
+				return ResponseEntity.badRequest().body(Map.of("error", "No field provided for update"));
+			}
+
+			// Get the field name and its new value
+			String fieldName = updates.keySet().iterator().next();
+			Object value = updates.get(fieldName);
+
+			int rowsAffected = studentService.updateStudentField(id, fieldName, value);
+
+			if (rowsAffected > 0) {
+				return ResponseEntity.ok(Map.of("message", "✅ " + fieldName + " updated successfully"));
+			} else {
+				return ResponseEntity.status(HttpStatus.NOT_FOUND)
+						.body(Map.of("error", "Student not found or update failed"));
+			}
+
+		} catch (IllegalArgumentException e) {
+			return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+		} catch (Exception e) {
+			return ResponseEntity.internalServerError().body(Map.of("error", "Something went wrong"));
+		}
+	}
 
 }
