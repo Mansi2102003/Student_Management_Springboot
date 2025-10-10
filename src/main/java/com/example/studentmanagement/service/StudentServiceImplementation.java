@@ -55,6 +55,16 @@ public class StudentServiceImplementation implements StudentService {
 		public List<Student> getAllStudents() {
 			return studentDao.findAll();
 		}
+		
+		@Override
+		public Student getStudentByName(String name) {
+			try {
+	            return studentDao.findByName(name);
+	        } catch (Exception e) {
+	            throw new ResourceNotFoundException("Student with id " + name + " not found");
+	        }
+		}
+
 }
 
 	
