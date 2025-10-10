@@ -37,41 +37,39 @@ public class StudentController {
 	private StudentService studentService;
 
 	// maps HTTP request to this method
-	
+
 	// takes jSON body and convert into student object automatically
-	//public ResponseEntity<Student> createStudent(@Valid @RequestBody Student student) {
-		// calls add student method to add user
-	//	return ResponseEntity.ok(studentService.addStudent(student));
-	//}
+	// public ResponseEntity<Student> createStudent(@Valid @RequestBody Student
+	// student) {
+	// calls add student method to add user
+	// return ResponseEntity.ok(studentService.addStudent(student));
+	// }
 	@PostMapping
-    public ResponseEntity<?> addStudent(@Valid @RequestBody StudentRequest studentReq, BindingResult result) {
-        if (result.hasErrors()) {
-            List<String> errors = result.getAllErrors().stream()
-                    .map(err -> err.getDefaultMessage())
-                    .toList();
-            return ResponseEntity.badRequest().body(Map.of("errors", errors));
-        }
+	public ResponseEntity<?> addStudent(@Valid @RequestBody StudentRequest studentReq, BindingResult result) {
+		if (result.hasErrors()) {
+			List<String> errors = result.getAllErrors().stream().map(err -> err.getDefaultMessage()).toList();
+			return ResponseEntity.badRequest().body(Map.of("errors", errors));
+		}
 
-        Student student = new Student();
-        student.setName(studentReq.getName());
-        student.setCourse(studentReq.getCourse());
-        student.setEmail(studentReq.getEmail());
-        student.setPh_no(studentReq.getPh_no());
-        student.setAddress(studentReq.getAddress());
+		Student student = new Student();
+		student.setName(studentReq.getName());
+		student.setCourse(studentReq.getCourse());
+		student.setEmail(studentReq.getEmail());
+		student.setPh_no(studentReq.getPh_no());
+		student.setAddress(studentReq.getAddress());
 
-        studentService.addStudent(student);
-        return ResponseEntity.status(HttpStatus.CREATED).body(student);
-    }
+		studentService.addStudent(student);
+		return ResponseEntity.status(HttpStatus.CREATED).body(student);
+	}
 
-    // Get student by ID
-    @GetMapping("/{id}")
-    public ResponseEntity<Student> getStudentById(@PathVariable int id) {
-        Student student = studentService.getStudentById(id);
-        if (student == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        return ResponseEntity.ok(student);
-    }
-
-	
+	// Get student by ID
+	@GetMapping("/id/{id}")
+	public ResponseEntity<Student> getStudentById(@PathVariable int id) {
+		Student student = studentService.getStudentById(id);
+		if (student == null)
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		return ResponseEntity.ok(student);
+	}
 
 	// Get student by name
 	@GetMapping("/name/{name}")
@@ -96,6 +94,7 @@ public class StudentController {
 		studentService.deleteStudent(id);
 		return ResponseEntity.noContent().build();
 	}
+
 	// Update specific field by ID
 	@PatchMapping("/{id}/update")
 	public ResponseEntity<?> updateStudentField(@PathVariable int id, @RequestBody Map<String, Object> updates) {
