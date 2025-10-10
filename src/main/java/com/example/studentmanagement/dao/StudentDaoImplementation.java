@@ -36,8 +36,9 @@ public class StudentDaoImplementation implements StudentDao {
 	
 	@Override
 	public Student findByName(String name) {
-		String sql = "SELECT * FROM students WHERE name =?";
+		String sql = "SELECT * FROM students WHERE LOWER(name) = LOWER(?)";
 		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Student.class), name);
+		
 	}
 	
 	@Override

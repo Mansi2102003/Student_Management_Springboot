@@ -61,7 +61,7 @@ public class StudentServiceImplementation implements StudentService {
 			try {
 	            return studentDao.findByName(name);
 	        } catch (Exception e) {
-	            throw new ResourceNotFoundException("Student with id " + name + " not found");
+	            throw new ResourceNotFoundException("Student with Name " + name + " not found");
 	        }
 		}
 
