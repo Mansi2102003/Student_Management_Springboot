@@ -12,60 +12,66 @@ import com.example.studentmanagement.model.Student;
 import jakarta.transaction.Transactional;
 
 @Service
+//It contains core business logic is written
 public class StudentServiceImplementation implements StudentService {
-	
-	//Autowired annotation means it tells spring to wired studenDao bean automatically
+
+	// Autowired annotation means it tells spring to wired studenDao bean
+	// automatically
 	@Autowired
 	private StudentDao studentDao;
-	
-	//It contains core business logic is written
+
 	@Override
-	public Student addStudent(Student student) {  //Take Student object as input
-		studentDao.save(student);   //Call studentsdao's method to save into database
+	// Take Student object as input
+	public Student addStudent(Student student) {
+		// Call studentsdao's method to save into database
+		studentDao.save(student);
 		return student;
 	}
-	
+
 	@Override
 	public Student getStudentById(int id) {
 		try {
-            return studentDao.findById(id);
-        } catch (Exception e) {
-            throw new ResourceNotFoundException("Student with id " + id + " not found");
-        }
-	}  
-	 @Override
-	 @Transactional
-	    public Student updateStudent(Student student) {
-	        int updated = studentDao.update(student);
-	        if (updated == 0) {
-	            throw new ResourceNotFoundException("Student with id " + student.getId() + " not found");
-	        }
-	        return student;
-	    }
+			return studentDao.findById(id);
+		} catch (Exception e) {
+			throw new ResourceNotFoundException("Student with id " + id + " not found");
+		}
+	}
 
-	    @Override
-	    public void deleteStudent(int id) {
-	        int deleted = studentDao.delete(id);
-	        if (deleted == 0) {
-	            throw new ResourceNotFoundException("Student with id " + id + " not found");
-	        }
-	    }
-	    
-		@Override
-		public List<Student> getAllStudents() {
-			return studentDao.findAll();
+	@Override
+	@Transactional
+	public Student updateStudent(Student student) {
+		int updated = studentDao.update(student);
+		if (updated == 0) {
+			throw new ResourceNotFoundException("Student with id " + student.getId() + " not found");
 		}
-		
-		@Override
-		public Student getStudentByName(String name) {
-			try {
-	            return studentDao.findByName(name);
-	        } catch (Exception e) {
-	            throw new ResourceNotFoundException("Student with Name " + name + " not found");
-	        }
+		return student;
+	}
+
+	@Override
+	public void deleteStudent(int id) {
+		int deleted = studentDao.delete(id);
+		if (deleted == 0) {
+			throw new ResourceNotFoundException("Student with id " + id + " not found");
 		}
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+		return studentDao.findAll();
+	}
+
+	@Override
+	public Student getStudentByName(String name) {
+		try {
+			return studentDao.findByName(name);
+		} catch (Exception e) {
+			throw new ResourceNotFoundException("Student with Name " + name + " not found");
+		}
+	}
+	
+	@Override
+	public int updateStudentField(int id, String fieldName, Object value) {
+		return studentDao.updateStudentField(id, fieldName, value);
+	}
 
 }
-
-	
-
