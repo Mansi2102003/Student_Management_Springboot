@@ -1,25 +1,37 @@
 package com.example.studentmanagement.model;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+
 public class Student {
 	int id;
-    String name;
-    String course;
-    String email;
-    String ph_no;
-    String address;
-    
-    public Student() {
-    	
-    }
-    
-    public Student(int id, String name, String course, String email, String ph_no, String address) {
+	String course;
+	String email;
+	String address;
+
+	@NotNull(message = "Enter a valid phone number")
+	@Min(value = 1000000000L, message = "Phone number must be 10 digits")
+	@Max(value = 9999999999L, message = "Phone number must be 10 digits")
+	long ph_no;
+
+	@NotNull(message = "Enter a valid Name")
+	@Pattern(regexp = "^[a-zA-Z\\s]+$", message = "Name can only contain letters and spaces.")
+	String name;
+
+	public Student() {
+
+	}
+
+	public Student(int id, String course, String email, long ph_no, String address, String name) {
 		super();
 		this.id = id;
-		this.name = name;
 		this.course = course;
 		this.email = email;
 		this.ph_no = ph_no;
 		this.address = address;
+		this.name = name;
 	}
 
 	public int getId() {
@@ -28,14 +40,6 @@ public class Student {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getCourse() {
@@ -54,11 +58,11 @@ public class Student {
 		this.email = email;
 	}
 
-	public String getPh_no() {
+	public long getPh_no() {
 		return ph_no;
 	}
 
-	public void setPh_no(String ph_no) {
+	public void setPh_no(long ph_no) {
 		this.ph_no = ph_no;
 	}
 
@@ -69,6 +73,13 @@ public class Student {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
-	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 }
