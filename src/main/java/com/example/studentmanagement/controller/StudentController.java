@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.studentmanagement.model.Student;
 import com.example.studentmanagement.service.StudentService;
 
+import jakarta.validation.Valid;
+
 @RestController // tells springs that it handles HTTP requests and return response
 @RequestMapping("/api/students")// sets base url for endpoint inside controller
 
@@ -27,14 +29,23 @@ public class StudentController {
   private StudentService studentService;
   
   @PostMapping //maps HTTP request to this method
-  public ResponseEntity<Student> createStudent(@RequestBody Student student) { //takes jSON body and convert into student object automatically 
+  public ResponseEntity<Student> createStudent(@Valid @RequestBody Student student) { //takes jSON body and convert into student object automatically 
 	    return ResponseEntity.ok(studentService.addStudent(student)); //calls add student method to add user
 	}
   
   
-  @GetMapping("/{id}")
+  //Get student by ID
+  @GetMapping("/id/{id}")
   public ResponseEntity<Student> getStudentById(@PathVariable int id) {
-      return ResponseEntity.ok(studentService.getStudentById(id));
+	  Student student = studentService.getStudentById(id);
+	  return ResponseEntity.ok(student);
+}
+
+  //Get student by name
+  @GetMapping("/name/{name}")
+  public ResponseEntity<Student> getStudentByName(@PathVariable String name) {
+	  Student student = studentService.getStudentByName(name);
+	  return ResponseEntity.ok(student);
   }
   
   
