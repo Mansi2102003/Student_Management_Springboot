@@ -31,7 +31,7 @@ if (currentPage() === "add-student.html") {
         alert("✅ Student added successfully!");
         studentForm.reset();
       } else {
-        alert("❌ Failed to add student");
+        alert("❌ Failed to add student ");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -108,7 +108,7 @@ if (currentPage() === "update-student.html") {
     };
 
     try {
-      const response = await fetch(`${API_URL}/${id}`, {
+      const response = await fetch(`${API_URL}/$id/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(student),
@@ -136,7 +136,7 @@ if (currentPage() === "search-student.html") {
     const id = document.getElementById("find-student-id").value;
 
     try {
-      const response = await fetch(`${API_URL}/${id}`);
+      const response = await fetch(`${API_URL}/id/${id}`);
       if (response.ok) {
         const student = await response.json();
         resultDiv.innerHTML = `
@@ -157,6 +157,36 @@ if (currentPage() === "search-student.html") {
       resultDiv.innerHTML = `<div class="alert alert-danger mt-3">❌ Error fetching student</div>`;
     }
   });
+  
+  const findFormName = document.getElementById("find-student-form-name");
+    const resultDivName = document.getElementById("search-result-name");
+
+    findFormName.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("find-student-name").value;
+
+      try {
+        const response = await fetch(`${API_URL}/name/${name}`);
+        if (response.ok) {
+          const student = await response.json();
+          resultDivName.innerHTML = `
+            <div class="card mt-3 p-3">
+              <h5>Student Details</h5>
+              <p><strong>ID:</strong> ${student.id}</p>
+              <p><strong>Name:</strong> ${student.name}</p>
+              <p><strong>Course:</strong> ${student.course}</p>
+              <p><strong>Email:</strong> ${student.email}</p>
+              <p><strong>Phone:</strong> ${student.ph_no}</p>
+              <p><strong>Address:</strong> ${student.address}</p>
+            </div>`;
+        } else {
+          resultDivName.innerHTML = `<div class="alert alert-warning mt-3">⚠️ Student not found</div>`;
+        }
+      } catch (error) {
+        console.error("Error searching student:", error);
+        resultDivName.innerHTML = `<div class="alert alert-danger mt-3">❌ Error fetching student</div>`;
+      }
+    });
 }
 
 //PAGE: DELETE STUDENT 
