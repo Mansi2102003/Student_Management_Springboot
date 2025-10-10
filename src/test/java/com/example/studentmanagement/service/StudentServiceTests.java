@@ -18,50 +18,50 @@ import com.example.studentmanagement.service.StudentServiceImplementation;
 @SpringBootTest
 public class StudentServiceTests {
 
-	 @Mock
-	 private StudentDao studentDao;
+	@Mock
+	private StudentDao studentDao;
 
-	     @InjectMocks // Mocks the dependency of StudentController
-	     private StudentServiceImplementation studentService;
-	     
+	// Mocks the dependency of StudentController
+	@InjectMocks
+	private StudentServiceImplementation studentService;
 
-	     @Test
-	     //This method tests the add student method of Service Layer
-	     void addStudentTest() throws Exception {
-	    	//Creates fake Students object
-	        Student student = new Student(1,"Mansiii","JAVA", "mansu@gmail.com", "9988562374","Ahmedabad");
-	       
-	        //Tell Mokito what to return when  Dao is called
-	        when(studentDao.save(student)).thenReturn(1);
-	        
-	        //Calls real service method to test
-	        Student saved = studentService.addStudent(student);
-	        
-	        //used to verify that a given object reference is not null
-	         assertNotNull(saved);
-	         
-	         //Verifies the result
-	         assertEquals("Mansiii", saved.getName());
-	     }
-	     
-	     @Test
-		    void findStudentByTest() {
-		    	Student student = new Student(2,"Mansiii","JAVA", "mansu@gmail.com", "9988562374","Ahmedabad");
-		        when(studentDao.findById(2)).thenReturn(student);
-		        
-		        Student found = studentService.getStudentById(2);
-		        assertNotNull(found);
-		        assertEquals("Mansiii", found.getName());
-		    }
-	     
-	     @Test
-	     void updateStudent() {
-	    	 Student student = new Student(1,"Mansi Thakkar", "HTML","mansi@gmail.com", "9988567424","Pune");
-	    	 when(studentDao.update(student)).thenReturn(1);
-	    	 
-	    	 Student updated = studentService.updateStudent(student);
-	    	 assertNotNull(updated);
-	    	 assertEquals("Mansi Thakkar",updated.getName());
-	     }
-	    
-	 }
+	@Test
+	// This method tests the add student method of Service Layer
+	void addStudentTest() throws Exception {
+		// Creates fake Students object
+		Student student = new Student(1, "Mansiii", "JAVA", "mansu@gmail.com", 9988562378l, "Ahmedabad");
+
+		// Tell Mokito what to return when Dao is called
+		when(studentDao.save(student)).thenReturn(1);
+
+		// Calls real service method to test
+		Student saved = studentService.addStudent(student);
+
+		// used to verify that a given object reference is not null
+		assertNotNull(saved);
+
+		// Verifies the result
+		assertEquals("Mansiii", saved.getName());
+	}
+
+	@Test
+	void findStudentByTest() {
+		Student student = new Student(2, "Mansiii", "JAVA", "mansu@gmail.com", 9988562374l, "Ahmedabad");
+		when(studentDao.findById(2)).thenReturn(student);
+
+		Student found = studentService.getStudentById(2);
+		assertNotNull(found);
+		assertEquals("Mansiii", found.getName());
+	}
+
+	@Test
+	void updateStudent() {
+		Student student = new Student(1, "Mansi Thakkar", "HTML", "mansi@gmail.com", 9988567424l, "Pune");
+		when(studentDao.update(student)).thenReturn(1);
+
+		Student updated = studentService.updateStudent(student);
+		assertNotNull(updated);
+		assertEquals("Mansi Thakkar", updated.getName());
+	}
+
+}

@@ -54,16 +54,16 @@ public class StudentDaoImplementation implements StudentDao {
 		String sql = "DELETE FROM students WHERE id = ? ";
 		return jdbcTemplate.update(sql, id);
 	}
-	
+
 	@Override
 	public int updateStudentField(int id, String fieldName, Object value) {
-		 List<String> allowedFields = List.of("name", "course", "email", "phNo", "address");
-		    if (!allowedFields.contains(fieldName)) {
-		        throw new IllegalArgumentException("Invalid field name");
-		    }
+		List<String> allowedFields = List.of("name", "course", "email", "phNo", "address");
+		if (!allowedFields.contains(fieldName)) {
+			throw new IllegalArgumentException("Invalid field name");
+		}
 
-		    String sql = "UPDATE students SET " + fieldName + " = ? WHERE id = ?";
-		    return jdbcTemplate.update(sql, value, id);
+		String sql = "UPDATE students SET " + fieldName + " = ? WHERE id = ?";
+		return jdbcTemplate.update(sql, value, id);
 	}
 
 }

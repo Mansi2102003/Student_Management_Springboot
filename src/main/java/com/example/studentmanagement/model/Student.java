@@ -1,30 +1,21 @@
 package com.example.studentmanagement.model;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 
 public class Student {
 	int id;
 	String course;
 	String email;
 	String address;
-
-	@NotNull(message = "Enter a valid phone number")
-	@Min(value = 1000000000L, message = "Phone number must be 10 digits")
-	@Max(value = 9999999999L, message = "Phone number must be 10 digits")
 	long ph_no;
 
-	@NotNull(message = "Enter a valid Name")
-	@Pattern(regexp = "^[a-zA-Z\\s]+$", message = "Name can only contain letters and spaces.")
+	
 	String name;
 
 	public Student() {
 
 	}
 
-	public Student(int id, String course, String email, long ph_no, String address, String name) {
+	public Student(int id, String course, String email, String address, long ph_no, String name) {
 		super();
 		this.id = id;
 		this.course = course;

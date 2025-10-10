@@ -68,7 +68,7 @@ public class StudentServiceImplementation implements StudentService {
 			throw new ResourceNotFoundException("Student with Name " + name + " not found");
 		}
 	}
-	
+
 	@Override
 	public int updateStudentField(int id, String fieldName, Object value) {
 		return studentDao.updateStudentField(id, fieldName, value);

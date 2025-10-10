@@ -19,7 +19,7 @@ public interface StudentService {
 	List<Student> getAllStudents();
 
 	Student getStudentByName(String name);
-	
+
 	int updateStudentField(int id, String fieldName, Object value);
 
 }

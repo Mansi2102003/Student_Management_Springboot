@@ -1,67 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>View Students</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-   <style>
- 	 .footer2 {
-      background-color: rgba(0, 0, 0, 0.2);
-      text-align: center;
-      margin: 20px;
-      padding: 12px 0;
-      font-size: 0.95rem;
-      color: #f8f9fa;
-    }
- </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View Students</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<style>
+.footer2 {
+	background-color: rgba(0, 0, 0, 0.2);
+	text-align: center;
+	margin: 20px;
+	padding: 12px 0;
+	font-size: 0.95rem;
+	color: #f8f9fa;
+}
+</style>
 </head>
 <body class="bg-light">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">Student Management</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="add-student.html">Add Student</a></li>
-          <li class="nav-item"><a class="nav-link" href="view-students.html">View Students</a></li>
-          <li class="nav-item"><a class="nav-link" href="update-student.html">Update Student</a></li>
-          <li class="nav-item"><a class="nav-link" href="search-student.html">Search Student</a></li>
-           <li class="nav-item"><a class="nav-link" href="delete-student.html">Delete Student</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
- 
-  <div class="container mt-5">
-    <div class="card p-4">
-      <h2>Student List</h2>
-      <table class="table table-striped mt-3">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Course</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Address</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="student-table-body">
-        </tbody>
-      </table>
-    </div>
-  </div>
-  
-   <!-- Footer -->
-  <footer class="footer2">
-    <p>© 2025 Student Management System | Built By Mansi Thakkar</p>
-  </footer>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="index.html">Student Management</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNav">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item"><a class="nav-link"
+						href="add-student.html">Add Student</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="view-students.html">View Students</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="update-student.html">Update Student</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="search-student.html">Search Student</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="delete-student.html">Delete Student</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-  <script src="js/app.js"></script>
+	<div class="container mt-5">
+		<div class="card p-4">
+			<h2>Student List</h2>
+			<table class="table table-striped mt-3">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Course</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th>Address</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody id="student-table-body">
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="footer2">
+		<p>© 2025 Student Management System | Built By Mansi Thakkar</p>
+	</footer>
+
+	<script src="js/app.js"></script>
 </body>
 </html>
