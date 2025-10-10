@@ -35,6 +35,12 @@ public class StudentDaoImplementation implements StudentDao {
 	}
 	
 	@Override
+	public Student findByName(String name) {
+		String sql = "SELECT * FROM students WHERE name =?";
+		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Student.class), name);
+	}
+	
+	@Override
 	public int update(Student student) {
 		String sql = "UPDATE students SET name = ?, course =?, email =?, ph_no =?, address =? WHERE id=?";
 		return jdbcTemplate.update(sql, 

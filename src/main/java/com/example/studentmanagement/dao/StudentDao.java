@@ -10,6 +10,7 @@ import java.util.List;
 public interface StudentDao {
 	int save(Student student);
 	Student findById(int id);
+	Student findByName(String name);
 	int update(Student student);
 	List<Student> findAll();
 	int delete(int id);
