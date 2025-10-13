@@ -71,6 +71,24 @@ public class StudentServiceImplementation implements StudentService {
 
 	@Override
 	public int updateStudentField(int id, String fieldName, Object value) {
+		if ("ph_no".equals(fieldName)) {
+			long phNo;
+			try {
+				if (value instanceof Number) {
+					// handles Integer, Long, Double
+					phNo = ((Number) value).longValue();
+				} else if (value instanceof String) {
+					phNo = Long.parseLong((String) value);
+				} else {
+					throw new IllegalArgumentException("Invalid phone number type");
+				}
+				return studentDao.updateStudentField(id, fieldName, phNo);
+			} catch (Exception e) {
+				throw new IllegalArgumentException("Invalid phone number format");
+			}
+		}
+
+		// For all other fields (string fields)
 		return studentDao.updateStudentField(id, fieldName, value);
 	}
 

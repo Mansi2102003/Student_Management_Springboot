@@ -86,29 +86,36 @@
 		<div class="card p-3">
 			<h2>Update Student Specific Information</h2>
 
-			<form id="update-student-form-field">
-				<div class="mb-2">
-					<label for="studentId" class="form-label" id = "studentId">Student ID</label> <input
-						type="number" class="form-control" id="update-id" required>
-				</div>
-				<div class="text-center">
-					<button type="submit" class="btn btn-warning">Fetch Details</button>
-				</div>
-				<select class="mb-3" id="fieldToUpdate">
+			<div class="mb-2">
+				<label for="studentId" class="form-label">Student ID</label> <input
+					type="number" class="form-control" id="studentId" required>
+			</div>
+
+			<div class="text-center mb-3">
+				<button type="button" id="fetchStudent" class="btn btn-info">Fetch
+					Details</button>
+			</div>
+
+			<div class="mb-3">
+				<select class="form-select" id="fieldToUpdate">
 					<option value="name">Name</option>
 					<option value="course">Course</option>
 					<option value="email">Email</option>
-					<option value="phNo">Phone Number</option>
+					<option value="ph_no">Phone Number</option>
 					<option value="address">Address</option>
-				</select> <input type="text" id="newValue" placeholder="Enter new value" />
+				</select>
+			</div>
 
-				<div class="text-center">
-					<button type="submit" class="btn btn-warning">Update Field</button>
-				</div>
-			</form>
+			<input type="text" class="form-control mb-3" id="newValue"
+				placeholder="Enter new value">
 
+			<div class="text-center">
+				<button type="button" id="updateField" class="btn btn-warning">Update
+					Field</button>
+			</div>
 		</div>
 	</div>
+
 
 	<!-- Footer -->
 	<footer class="footer">

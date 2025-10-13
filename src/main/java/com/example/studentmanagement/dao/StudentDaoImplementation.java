@@ -57,7 +57,7 @@ public class StudentDaoImplementation implements StudentDao {
 
 	@Override
 	public int updateStudentField(int id, String fieldName, Object value) {
-		List<String> allowedFields = List.of("name", "course", "email", "phNo", "address");
+		List<String> allowedFields = List.of("name", "course", "email", "ph_no", "address");
 		if (!allowedFields.contains(fieldName)) {
 			throw new IllegalArgumentException("Invalid field name");
 		}

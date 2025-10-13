@@ -133,7 +133,7 @@ if (currentPage() === "update-student.html") {
 	const fetchBtn = document.getElementById("fetchStudent");
 	const updateFieldBtn = document.getElementById("updateField");
 
-	// 🔹 1️⃣ Fetch student by ID and fill the form
+	// Fetch student by ID and fill the form
 	fetchBtn.addEventListener("click", async () => {
 		const id = document.getElementById("studentId").value;
 		if (!id) return alert("⚠️ Please enter a student ID.");
@@ -160,7 +160,7 @@ if (currentPage() === "update-student.html") {
 		}
 	});
 
-	// 🔹 2️⃣ Full update using PUT (updates all fields)
+	// Full update using PUT (updates all fields)
 	updateForm.addEventListener("submit", async (e) => {
 		e.preventDefault();
 
@@ -193,50 +193,63 @@ if (currentPage() === "update-student.html") {
 			alert("⚠️ Error while updating student.");
 		}
 	});
-// 🔹 3️⃣ Partial update for one specific field (PATCH)
-			updateFieldBtn.addEventListener("click", async () => {
-				const id = document.getElementById("studentId").value;
-				const field = document.getElementById("fieldToUpdate").value;
-				const value = document.getElementById("newValue").value.trim();
 
-				if (!id) return alert("⚠️ Please enter student ID first.");
-				if (!value) return alert("⚠️ Please enter a new value.");
+	// Partial update for one specific field (PATCH)
+	updateFieldBtn.addEventListener("click", async () => {
+		const id = document.getElementById("studentId").value;
+		const field = document.getElementById("fieldToUpdate").value;
+		const value = document.getElementById("newValue").value.trim();
 
-				try {
-					const res = await fetch(`${API_URL}/${id}/update`, {
-						method: "PATCH",
-						headers: { "Content-Type": "application/json" },
-						body: JSON.stringify({ [field]: value }), // dynamic field update
-					});
+		if (!id) return alert("⚠️ Please enter student ID first.");
+		if (!value) return alert("⚠️ Please enter a new value.");
 
-					if (res.ok) {
-						alert("✅ Field updated successfully!");
-						document.getElementById("newValue").value = "";
-					} else {
-						const errorData = await res.json();
-						alert("❌ Update failed: " + (errorData.message || "Unknown error"));
-					}
-				} catch (error) {
-					console.error("Error updating field:", error);
-					alert("⚠️ Error while updating specific field.");
+		try {
+			// Convert phone number to a number if selected
+			let formattedValue = value;
+			if (field === "ph_no") {
+				if (!/^[6-9][0-9]{9}$/.test(value)) {
+					alert("⚠️ Enter a valid 10-digit phone number starting with 6–9.");
+					return;
 				}
+				// convert string to number for backend
+				formattedValue = Number(value);
+			}
+
+			const res = await fetch(`${API_URL}/${id}/update`, {
+				method: "PATCH",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ [field]: formattedValue }),
 			});
+
+			if (res.ok) {
+				alert("✅ Field updated successfully!");
+				document.getElementById("newValue").value = "";
+			} else {
+				const errorData = await res.json();
+				alert("❌ Update failed: " + (errorData.message || "Unknown error"));
+			}
+		} catch (error) {
+			console.error("Error updating field:", error);
+			alert("⚠️ Error while updating specific field.");
 		}
+	});
+
+}
 
 //PAGE: SEARCH STUDENT
 if (currentPage() === "search-student.html") {
-			const findForm = document.getElementById("find-student-form");
-			const resultDiv = document.getElementById("search-result");
+	const findForm = document.getElementById("find-student-form");
+	const resultDiv = document.getElementById("search-result");
 
-			findForm.addEventListener("submit", async (e) => {
-				e.preventDefault();
-				const id = document.getElementById("find-student-id").value;
+	findForm.addEventListener("submit", async (e) => {
+		e.preventDefault();
+		const id = document.getElementById("find-student-id").value;
 
-				try {
-					const response = await fetch(`${API_URL}/id/${id}`);
-					if (response.ok) {
-						const student = await response.json();
-						resultDiv.innerHTML = `
+		try {
+			const response = await fetch(`${API_URL}/id/${id}`);
+			if (response.ok) {
+				const student = await response.json();
+				resultDiv.innerHTML = `
           <div class="card mt-3 p-3">
             <h5>Student Details</h5>
             <p><strong>ID:</strong> ${student.id}</p>
@@ -246,27 +259,27 @@ if (currentPage() === "search-student.html") {
             <p><strong>Phone:</strong> ${student.ph_no}</p>
             <p><strong>Address:</strong> ${student.address}</p>
           </div>`;
-					} else {
-						resultDiv.innerHTML = `<div class="alert alert-warning mt-3">⚠️ Student not found</div>`;
-					}
-				} catch (error) {
-					console.error("Error searching student:", error);
-					resultDiv.innerHTML = `<div class="alert alert-danger mt-3">❌ Error fetching student</div>`;
-				}
-			});
+			} else {
+				resultDiv.innerHTML = `<div class="alert alert-warning mt-3">⚠️ Student not found</div>`;
+			}
+		} catch (error) {
+			console.error("Error searching student:", error);
+			resultDiv.innerHTML = `<div class="alert alert-danger mt-3">❌ Error fetching student</div>`;
+		}
+	});
 
-			const findFormName = document.getElementById("find-student-form-name");
-			const resultDivName = document.getElementById("search-result-name");
+	const findFormName = document.getElementById("find-student-form-name");
+	const resultDivName = document.getElementById("search-result-name");
 
-			findFormName.addEventListener("submit", async (e) => {
-				e.preventDefault();
-				const name = document.getElementById("find-student-name").value;
+	findFormName.addEventListener("submit", async (e) => {
+		e.preventDefault();
+		const name = document.getElementById("find-student-name").value;
 
-				try {
-					const response = await fetch(`${API_URL}/name/${name}`);
-					if (response.ok) {
-						const student = await response.json();
-						resultDivName.innerHTML = `
+		try {
+			const response = await fetch(`${API_URL}/name/${name}`);
+			if (response.ok) {
+				const student = await response.json();
+				resultDivName.innerHTML = `
             <div class="card mt-3 p-3">
               <h5>Student Details</h5>
               <p><strong>ID:</strong> ${student.id}</p>
@@ -276,47 +289,47 @@ if (currentPage() === "search-student.html") {
               <p><strong>Phone:</strong> ${student.ph_no}</p>
               <p><strong>Address:</strong> ${student.address}</p>
             </div>`;
-					} else {
-						resultDivName.innerHTML = `<div class="alert alert-warning mt-3">⚠️ Student not found</div>`;
-					}
-				} catch (error) {
-					console.error("Error searching student:", error);
-					resultDivName.innerHTML = `<div class="alert alert-danger mt-3">❌ Error fetching student</div>`;
-				}
-			});
+			} else {
+				resultDivName.innerHTML = `<div class="alert alert-warning mt-3">⚠️ Student not found</div>`;
+			}
+		} catch (error) {
+			console.error("Error searching student:", error);
+			resultDivName.innerHTML = `<div class="alert alert-danger mt-3">❌ Error fetching student</div>`;
+		}
+	});
+}
+
+//PAGE: DELETE STUDENT 
+if (currentPage() === "delete-student.html") {
+	const deleteForm = document.getElementById("delete-student-form");
+	const deleteMessage = document.getElementById("delete-message");
+
+	deleteForm.addEventListener("submit", async (e) => {
+		e.preventDefault();
+		const id = document.getElementById("delete-id").value;
+
+		if (!id) {
+			deleteMessage.innerHTML = `<div class="alert alert-warning">Please enter a student ID.</div>`;
+			return;
 		}
 
-		//PAGE: DELETE STUDENT 
-		if (currentPage() === "delete-student.html") {
-			const deleteForm = document.getElementById("delete-student-form");
-			const deleteMessage = document.getElementById("delete-message");
-
-			deleteForm.addEventListener("submit", async (e) => {
-				e.preventDefault();
-				const id = document.getElementById("delete-id").value;
-
-				if (!id) {
-					deleteMessage.innerHTML = `<div class="alert alert-warning">Please enter a student ID.</div>`;
-					return;
-				}
-
-				if (!confirm(`Are you sure you want to delete student ID: ${id}?`)) {
-					return;
-				}
-
-				try {
-					const response = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
-					if (response.ok) {
-						deleteMessage.innerHTML = `<div class="alert alert-success">✅ Student ID ${id} deleted successfully.</div>`;
-						deleteForm.reset();
-					} else if (response.status === 404) {
-						deleteMessage.innerHTML = `<div class="alert alert-warning">⚠️ No student found with ID ${id}.</div>`;
-					} else {
-						deleteMessage.innerHTML = `<div class="alert alert-danger">❌ Failed to delete student.</div>`;
-					}
-				} catch (error) {
-					console.error("Error deleting student:", error);
-					deleteMessage.innerHTML = `<div class="alert alert-danger">⚠️ Error while deleting student.</div>`;
-				}
-			});
+		if (!confirm(`Are you sure you want to delete student ID: ${id}?`)) {
+			return;
 		}
+
+		try {
+			const response = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+			if (response.ok) {
+				deleteMessage.innerHTML = `<div class="alert alert-success">✅ Student ID ${id} deleted successfully.</div>`;
+				deleteForm.reset();
+			} else if (response.status === 404) {
+				deleteMessage.innerHTML = `<div class="alert alert-warning">⚠️ No student found with ID ${id}.</div>`;
+			} else {
+				deleteMessage.innerHTML = `<div class="alert alert-danger">❌ Failed to delete student.</div>`;
+			}
+		} catch (error) {
+			console.error("Error deleting student:", error);
+			deleteMessage.innerHTML = `<div class="alert alert-danger">⚠️ Error while deleting student.</div>`;
+		}
+	});
+}
