@@ -103,7 +103,7 @@ Student_Management_Springboot/\
   		name VARCHAR(255) NOT NULL,\
  		course VARCHAR(255) NOT NULL,\
  		email VARCHAR(255) NOT NULL UNIQUE,\
- 		ph_no VARCHAR(15) NOT NULL,\
+ 		ph_no BIGINIT NOT NULL,\
  		address VARCHAR(255)\
   	);
 	
@@ -169,6 +169,7 @@ update-student.html\
 	- Form to update an existing student’s details.\
 	- Pre-fills student data when selected from the table.\
 	- Sends updated data to backend using PUT method.\
+	- Updates specific field of student data using PATCH method.\
 
 delete-student.html\
 	- Allows deleting a student by ID.\
@@ -176,6 +177,8 @@ delete-student.html\
 
 search-student.html\
 	- Lets you search a student by their ID.\
+	- Displays details in a card format.\
+	- Lets you search a student by their Name without case-sensitivity.\
 	- Displays details in a card format.\
 
 app.js:\
@@ -203,6 +206,26 @@ Functions:
 
 ![A screenshot of the application](images/AddStudentForm.png)
 
+**Name validation For Adding Student:**
+
+
+![A screenshot of the application](images/NameValidation.png)
+
+**Email validation For Adding Student:**
+
+
+![A screenshot of the application](images/EmailValidation.png)
+
+**Phone Number validation For Adding Student:**
+
+
+![A screenshot of the application](images/PhoneNumberValidation.png)
+
+**Address validation For Adding Student:**
+
+
+![A screenshot of the application](images/AddressValidation.png)
+
 **Student Added Successfully:**
 
 
@@ -228,10 +251,21 @@ Functions:
 
 ![A screenshot of the application](images/NostudentFoundToDelete.png)
 
+**Found Student By Name:**
+
+
+![A screenshot of the application](images/FindByName.png)
+
 **Update Student Details:** 
 
 
 ![A screenshot of the application](images/UpdateStudentForm.png)
+
+**Update Specific Field of Student Details:** 
+
+
+![A screenshot of the application](images/UpdateSpecificField.png)
+
 
 **View Students:**
 

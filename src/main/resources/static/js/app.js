@@ -12,14 +12,14 @@ if (currentPage() === "add-student.html") {
 	studentForm.addEventListener("submit", async (e) => {
 		e.preventDefault();
 
-		// 1️⃣ Collect form values
+		// Collect form values
 		const name = document.getElementById("name").value.trim();
 		const course = document.getElementById("course").value.trim();
 		const email = document.getElementById("email").value.trim();
 		const phNo = document.getElementById("ph_no").value.trim();
 		const address = document.getElementById("address").value.trim();
 
-		// 2️⃣ Validation Section
+		// Validation Section
 		if (!/^[A-Za-z\s]+$/.test(name)) {
 			alert("⚠️ Enter a valid name (letters and spaces only).");
 			return;
@@ -48,7 +48,7 @@ if (currentPage() === "add-student.html") {
 			return;
 		}
 
-		// 3️⃣ If all validations pass, prepare object
+		// If all validations pass, prepare object
 		const student = { name, course, email, ph_no: phNo, address };
 
 		try {
@@ -133,7 +133,7 @@ if (currentPage() === "update-student.html") {
 	const fetchBtn = document.getElementById("fetchStudent");
 	const updateFieldBtn = document.getElementById("updateField");
 
-	// Fetch student by ID and fill the form
+	// Fetch student by ID
 	fetchBtn.addEventListener("click", async () => {
 		const id = document.getElementById("studentId").value;
 		if (!id) return alert("⚠️ Please enter a student ID.");
