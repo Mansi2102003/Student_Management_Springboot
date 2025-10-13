@@ -246,7 +246,7 @@ Functions:
 
 ![A screenshot of the application](images/FindByIdOutput.png)
 
-**Student Not Found:**
+**Student Not Found to Delete:**
 
 
 ![A screenshot of the application](images/NostudentFoundToDelete.png)
