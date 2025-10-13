@@ -9,6 +9,7 @@
 - Edit and update existing student information
 - Delete student records
 - Search student by ID
+- Search student by Name 
 - View all students in a tabular format
 - Responsive UI built with Bootstrap 5
 
@@ -140,13 +141,15 @@ Student_Management_Springboot/\
 	
 **API Endpoints**
 
-| Method | Endpoint           | Description       |
-| ------ | ------------------ | ----------------- |
-| GET    | /api/students      | Get all students  |
-| GET    | /api/students/{id} | Get student by ID |
-| POST   | /api/students      | Add new student   |
-| PUT    | /api/students/{id} | Update student    |
-| DELETE | /api/students/{id} | Delete student    |
+| Method | Endpoint                  | Description                    |
+| ------ | --------------------------| -------------------------------|
+| GET    | /api/students             | Get all students               |
+| GET    | /api/students/id/{id}     | Get student by ID              |
+| GET    | /api/students/name/{name} | Get student by Name 			  |
+| POST   | /api/students             | Add new student                |
+| PUT    | /api/students/{id}        | Update student                 |
+| PATCH  | /api/students/{id}/update | Update student specific detail |
+| DELETE | /api/students/{id}        | Delete student                 |
 	
 **Frontend Overview**
 
@@ -185,14 +188,16 @@ app.js:\
 	- Handles API calls to Spring Boot backend.\
 
 Functions:
-| Function              | Purpose                                               |
-| --------------------- | ----------------------------------------------------- |
-| **fetchStudents()**   | Loads and displays all students (GET).                |
-| **addStudent()**      | Adds a new student (POST).                            | 
-| **updateStudent()**   | Updates existing student info (PUT).                  |
-| **deleteStudent(id)** | Deletes a student by ID (DELETE).                     |
-| **findStudentById()** | Searches and displays student by ID (GET by ID).      |
-| **resetForm()**       | Clears input fields after add/update.                 |
+| Function                  | Purpose                                               |
+| ------------------------- | ----------------------------------------------------- |
+| **fetchStudents()**       | Loads and displays all students (GET).                |
+| **addStudent()**          | Adds a new student (POST).                            | 
+| **updateStudent()**       | Updates existing student info (PUT).                  |
+| **updateStudentField()**  | Updates existing student info (PUT).                  |
+| **deleteStudent(id)**     | Deletes a student by ID (DELETE).                     |
+| **getStudentById()**      | Searches and displays student by ID (GET by ID).      |
+| **getStudentByName()**    | Searches and displays student by ID (GET by ID).      |
+| **resetForm()**           | Clears input fields after add/update.                 |
 
 **Screenshots**
 
